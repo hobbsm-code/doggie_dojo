@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doggie Dojo Form</title>
+</head>
+<body>
+    <h1>Doggie Dojo Training Form</h1>
+    <form action="/submit" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="dogname">Dog Name:</label>
+        <input type="text" id="dogname" name="dogname" required><br><br>
+
+        <label for="dogbreed">Dog Breed:</label>
+        <input type="text" id="dogbreed" name="dogbreed" required><br><br>
+
+        <label for="activity">Training Activity:</label>
+        <select id="activity" name="activity" required>
+            <option value="obedience">Obedience</option>
+            <option value="agility">Agility</option>
+            <option value="tracking">Tracking</option>
+            <option value="protection">Protection</option>
+        </select><br><br>
+        <div>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="window.location.href='landing.html'">Cancel</button>
+        </div>
+    </form>
+</body>
+</html>
