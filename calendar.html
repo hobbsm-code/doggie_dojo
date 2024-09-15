@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,89 +14,230 @@
             flex-direction: column;
             font-family: Arial, sans-serif;
         }
+
         .calendar {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 2px;
         }
+
         .day {
             border: 1px solid #ccc;
             padding: 10px;
         }
+
         .tasks {
             list-style-type: none;
             padding: 0;
         }
+
         .tasks li {
             margin-bottom: 5px;
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
             <a href="landing.html">Home</a>
         </nav>
     </header>
-<body>
-    <h1>Training Calendar</h1>
-    <div class="calendar">
-        <div class="day">
-            <h2>Monday</h2>
-            <ul class="tasks">
-                <li><input type="checkbox"> Task 1</li>
-                <li><input type="checkbox"> Task 2</li>
-                <li><input type="checkbox"> Task 3</li>
-            </ul>
-        </div>
-        <div class="day">
-            <h2>Tuesday</h2>
-            <ul class="tasks">
-                <li><input type="checkbox"> Task 1</li>
-                <li><input type="checkbox"> Task 2</li>
-                <li><input type="checkbox"> Task 3</li>
-            </ul>
-        </div>
-        <div class="day">
-            <h2>Wednesday</h2>
-            <ul class="tasks">
-                <li><input type="checkbox"> Task 1</li>
-                <li><input type="checkbox"> Task 2</li>
-                <li><input type="checkbox"> Task 3</li>
-            </ul>
-        </div>
-        <div class="day">
-            <h2>Thursday</h2>
-            <ul class="tasks">
-                <li><input type="checkbox"> Task 1</li>
-                <li><input type="checkbox"> Task 2</li>
-                <li><input type="checkbox"> Task 3</li>
-            </ul>
-        </div>
-        <div class="day">
-            <h2>Friday</h2>
-            <ul class="tasks">
-                <li><input type="checkbox"> Task 1</li>
-                <li><input type="checkbox"> Task 2</li>
-                <li><input type="checkbox"> Task 3</li>
-            </ul>
-        </div>
-        <div class="day">
-            <h2>Saturday</h2>
-            <ul class="tasks">
-                <li><input type="checkbox"> Task 1</li>
-                <li><input type="checkbox"> Task 2</li>
-                <li><input type="checkbox"> Task 3</li>
-            </ul>
-        </div>
-        <div class="day">
-            <h2>Sunday</h2>
-            <ul class="tasks">
-                <li><input type="checkbox"> Task 1</li>
-                <li><input type="checkbox"> Task 2</li>
-                <li><input type="checkbox"> Task 3</li>
-            </ul>
-        </div>
-    </div>
-</body>
+
+    <body>
+        <h1>Training Calendar</h1>
+
+
+
+
+        <table>
+            <tr>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            <tr>
+                <td class="day">
+                    <h2>1</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox"> Task 1</li>
+                        <li><input type="checkbox"> Task 2</li>
+                    </ul>
+                </td>
+                <td class="day">
+                    <h2>2</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                </td>
+                <td class="day">
+                    <h2>3</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                </td>
+                <td class="day">
+                    <h2>4</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                </td>
+                <td class="day">
+                    <h2>5</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                </td>
+                <td class="day">
+                    <h2>6</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                </td>
+                <td class="day">
+                    <h2>7</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                <td class="day">
+                    <h2>8</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                <td class="day">
+                    <h2>9</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                <td class="day">
+                    <h2>10</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                <td class="day">
+                    <h2>11</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                <td class="day">
+                    <h2>12</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                <td class="day">
+                    <h2>13</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                <td class="day">
+                    <h2>14</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                <td class="day">
+                    <h2>15</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                <td class="day">
+                    <h2>16</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                    </ul>
+                <td class="day">
+                    <h2>17</h2>
+                    <ul class="tasks">
+                        <li><input type="checkbox">Task 1</li>
+                        <li><input type="checkbox">Task 2</li>
+                </td>
+
+
+            </tr>
+            <td class="day">
+                <h2>18</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+                </ul>
+            <td class="day">
+                <h2>19</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+                </ul>
+            <td class="day">
+                <h2>20</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+                </ul>
+            <td class="day">
+                <h2>21</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+                </ul>
+            <td class="day">
+                <h2>22</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+                </ul>
+            <td class="day">
+                <h2>23</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+                </ul>
+            <td class="day">
+                <h2>24</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+                </ul>
+            <td class="day">
+                <h2>25</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+                </ul>
+            <td class="day">
+                <h2>26</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+                </ul>
+            <td class="day">
+                <h2>27</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+                </ul>
+            <td class="day">
+                <h2>28</h2>
+                <ul class="tasks">
+                    <li><input type="checkbox">Task 1</li>
+                    <li><input type="checkbox">Task 2</li>
+        </table>
+    </body>
+
 </html>
