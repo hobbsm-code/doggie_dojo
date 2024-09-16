@@ -1,0 +1,12 @@
+.form-group {
+    padding: 10px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.button-group {
+    padding: 10px;
+}
