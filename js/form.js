@@ -2,6 +2,7 @@ const USER_DATA_KEY = 'doggieDojoUserData';
 
 const formElement = document.querySelector('#userForm');
 const submitButton = document.querySelector('#submitBtn');
+const cancelButton = document.querySelector('#cancelBtn');
 const userNameInput = document.querySelector('#username');
 const dogNameInput = document.querySelector('#dogname');
 const dogBreedInput = document.querySelector('#dogbreed');
@@ -14,7 +15,6 @@ const buildUserDataObjectFromInputs = function() {
         dogBreed: dogBreedInput.value,
         activity: activitySelect.value
     }
-    console.log(`User data: ${JSON.stringify(userData)}`);
     return userData;
 }
 
@@ -33,19 +33,17 @@ const loadUserDataArray = function() {
 
 const saveUserData = function() {
     const userData = buildUserDataObjectFromInputs();
-    console.log(`User data: ${JSON.stringify(userData)}`);
     saveToLocalStorage(USER_DATA_KEY, JSON.stringify(userData));
 }
 
-const formSubmit = function(event) {
+const formSubmit = function (event) {
     event.preventDefault();
-    console.log('Form submitted');
     saveUserData();
     redirectPage('calendar.html');
 }
 
 // On form submit, save the user data to local storage and redirect to the calendar page
-submitButton.addEventListener('click', function(event) {
-    event.stopImmediatePropagation();
-    formSubmit(event);
-}, false);
+formElement.addEventListener('submit', formSubmit);
+cancelButton.addEventListener('click', function() {
+    redirectPage('index.html');
+});
