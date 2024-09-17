@@ -17,19 +17,58 @@
 
     <body>
         <header>
-            <h1>Doggie Dojo</h1>
+            <div class="dogContainer">
+                <nav class="navbar">
+                <a href="#">
+                    <img
+                        src="assets/images/dogIcon.png"
+                        class="dogLogo"
+                        alt="Dog Icon"
+                    />
+                </a>
+                <div class="right">
+                    <button onclick="window.location.href='form.html'">Sign In</button>
+                </div>
+            </div>
+            </nav>
+            <!-- <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"
+                        >Lessons</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+            </ul>-->
         </header>
-        <main>
+
+        
+        <main class="title">
+            <div class="content">
             <h1>Doggie Dojo</h1>
-            <section>
-                "Unleash the potential in your pooch: Track, train, and
-                transform with ease!"
-            </section>
-            <button onclick="window.location.href='form.html'">Sign In</button>
+            <h2>
+                Unleash the potential in your pooch: Track, train, and
+                transform with ease!
+            </h2>
+        <form action="#">
+            <h6>New here? Sign up below and transform your life.</h6>
+           <div class="email">
+            <input type="email" name="email" placeholder="Email Address">
             <button onclick="window.location.href='calendar.html'">
                 Register
             </button>
+           </div>
+            </form>
+            </div>
         </main>
+
         <footer>
             <p>&copy; 2024 Doggie Dojo. All rights reserved.</p>
         </footer>
