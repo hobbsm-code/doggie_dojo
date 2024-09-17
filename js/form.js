@@ -17,6 +17,7 @@ const formElement = document.querySelector('#userForm');
 const submitButton = document.querySelector('#submitBtn');
 const cancelButton = document.querySelector('#cancelBtn');
 const userNameInput = document.querySelector('#username');
+const userPasswordInput = document.querySelector('#password');
 const dogNameInput = document.querySelector('#dogname');
 const dogBreedInput = document.querySelector('#dogbreed');
 const activitySelect = document.querySelector('#activity');
@@ -25,6 +26,7 @@ const activitySelect = document.querySelector('#activity');
 const buildUserDataObjectFromInputs = function() {
     const userData = {
         userName: userNameInput.value,
+        userPassword: userPasswordInput.value,
         dogName: dogNameInput.value,
         dogBreed: dogBreedInput.value,
         activity: activitySelect.value,
