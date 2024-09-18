@@ -25,10 +25,10 @@ const activitySelect = document.querySelector('#activity');
 // Build user data object from form inputs
 const buildUserDataObjectFromInputs = function() {
     const userData = {
-        userName: userNameInput.value,
+        userName: userNameInput.value.trim(),
         userPassword: userPasswordInput.value,
-        dogName: dogNameInput.value,
-        dogBreed: dogBreedInput.value,
+        dogName: dogNameInput.value.trim(),
+        dogBreed: dogBreedInput.value.trim(),
         activity: activitySelect.value,
         tasks: setTrainingTasks()
     }
