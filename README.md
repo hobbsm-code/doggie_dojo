@@ -22,3 +22,23 @@ We made the app for people with disobedient dogs. It is used to help the owners 
 -- Create a calendar file: link the corresponding css and java pages, this page should also take the user back to the landing page. The goal is to link the calendar using # bootstrap mock up. A table should also be created to insert tasks for each calenadr day. Include a side bar that tracks the user's progress as they complete tasks. Animations can be added if time permits to incoporate the ## doggie dojo theme. The tasks shiouold also include check boxes that equait to time for the progress bar. 
 
 ## 
+
+<aside>
+            <th>Progress Tracker</th>
+            <td>
+                <h6>Yellow Belt</h6>
+                <h2><span id="counter">0</span></h2>
+            </td>
+            <td>
+                <h6>Orange Belt</h6>
+                <h2><span id="counter">0</span></h2>
+            </td>
+            <td>
+                <h6>Green Belt</h6>
+                <h2><span id="counter">0</span></h2>
+            </td>
+            <td>
+                <h6>Black Belt</h6>
+                <h2><span id="counter">0</span></h2>
+            </td>
+        </aside>
