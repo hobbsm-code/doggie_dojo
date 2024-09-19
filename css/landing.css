@@ -108,7 +108,7 @@ header {
 
 .right {
     display: flex;
-    align-items: center; /* Center items vertically */
+    align-items: center;
 }
 
 .right button {
@@ -153,8 +153,43 @@ button {
 
 main {
     padding: 70px 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #121212;
+    color: #ffffff;
 }
+
+main .content {
+    width: 750px;
+    padding: 75px 0;
+    margin: auto;
+}
+
+main h1 {
+    font-size: 65px;
+    margin-bottom: 40px;
+}
+
+main h2 {
+    margin-bottom: 30px;
+}
+
+main form h6 {
+    margin-bottom: 10px;
+}
+
+main form .email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 100rem; /*work on making this wider*/
+}
+
 main form .email input {
+    /*input part of email address signup*/
     height: 50px;
     width: 300px;
     padding: 0 15px;
@@ -162,17 +197,36 @@ main form .email input {
     background: #fff;
     border-radius: 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid #e50914;
+    border: 4px solid blue;
     outline: none;
     transition: all 0.3s ease;
+}
+
+main form .email button {
+    height: 40px;
+    width: 120px;
+    border-radius: 25px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOV0fcAuhAfjjIf5_ggum4XflcU2HC4ovZnmnWctqzu8QUsG3FKPfp6l4pLYkksnShS34&usqp=CAU');
+    color: white;
+    font-weight: 900;
+    font-size: 20px;
+    cursor: grab;
+}
+
+main form .email button:hover {
+    transform: scale(0.95);
+}
+
+main form .email button:active {
+    transform: scale(0.9);
 }
 
 @keyframes dogBounce {
     0%,
     100% {
-        transform: translateX(0); /* Start at the original position */
+        transform: translateX(0);
     }
     50% {
-        transform: translateX(-10px); /* Move 10px to the left */
+        transform: translateX(-10px);
     }
 }
