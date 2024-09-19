@@ -1,10 +1,57 @@
+main {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    padding-right: 37px;
+    font-size: 54px;
+    font-family: ui-rounded;
+    font-weight: bold;
+    color: rgb(14, 13, 13);
+    text-shadow: 2px 2px 2px rgb(105, 104, 104);
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    display: flex;
+    padding-right: 37px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 1720px;
+}
+
+form {
+    border: 6px solid rgb(205, 205, 206);
+    border-radius: 2%;
+    padding: 20px;
+    width: 38%;
+}
+
 .form-group {
     padding: 10px;
 }
 
 .form-group label {
+    font-family: cursive;
     display: block;
+    font-size: 27px;
     font-weight: bold;
+}
+
+.form-control {
+    padding: 3px;
+    font-size: larger;
+}
+
+button {
+    /* display: block; */
+    width: 49.59%;
 }
 
 .button-group {

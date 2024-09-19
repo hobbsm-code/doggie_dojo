@@ -7,34 +7,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/calendar.css">
     <title>Training Calendar</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            font-family: Arial, sans-serif;
-        }
-
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 2px;
-        }
-
-        .day {
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-
-        .tasks {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .tasks li {
-            margin-bottom: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
+
 
 <body>
     <header>
@@ -43,7 +18,8 @@
         </nav>
     </header>
 
-    <body>
+
+    
         <div class="container">
             <div class="calendar">
                 <div class="month">
@@ -61,6 +37,25 @@
                         <div>Thu</div>
                         <div>Fri</div>
                         <div>Sat</div>
+
+    <div class="container">
+        <div class="calendar">
+            <div class="month">
+                <i class="fas fa-angle-left prev"></i>
+                <div class="date">
+                    <h1>September</h1>
+                    <p>Tue September 17, 2024</p>
+                </div>
+                <i class="fas fa-angle-right next"></i>
+                <div class="weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+
                 </div>
                 <div class="days">
                     <div class="prev-date">26</div>
@@ -107,13 +102,19 @@
                     <div class="next-date">5</div>
                     <div class="next-date">6</div>
 
+
+
                 </div>
             </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     </body>
+=======
+</body>
+
 
 <footer>
     <h2>Training Videos</h2>
