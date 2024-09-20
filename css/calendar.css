@@ -118,3 +118,25 @@ html {
 .today {
     background-color: #a34daf;
 }
+
+footer {
+    position: absolute;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    background-color: #4d0808;;
+    color:#f1f1f1;
+    display: flex;
+    flex-direction:row;
+    padding: 0 1rem;
+    justify-content: space-between;
+    line-height: 300%;
+    bottom: -320px;
+    
+}
+
+footer h2 {
+    position: relative;
+    bottom: -70px;
+}
