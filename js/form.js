@@ -35,20 +35,6 @@ const buildUserDataObjectFromInputs = function() {
     return userData;
 }
 
-// Load user data from local storage
-const loadUserDataArray = function() {
-    let userData = loadFromLocalStorage(USER_DATA_KEY);
-    if(userData === null || Array.length === 0) {
-        userData = [];
-    } else {
-        userData = JSON.parse(userData);
-        if(!Array.isArray(userData)) {
-            userData = [userData];
-        }
-    }
-    return userData;
-}
-
 // Save user data to local storage
 const saveUserData = function() {
     const userData = buildUserDataObjectFromInputs();
