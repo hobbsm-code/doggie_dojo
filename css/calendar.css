@@ -21,34 +21,11 @@ html {
 }
 
 .calendar {
+    position: relative;
     width: 45rem;
-    height: 52rem;
-    background-color: aqua;
+    height: 50rem;
+    background-color: #fff;
     box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.5);
-}
-
-.calendar::before
-.calendar::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    width: 12px;
-    height: 97%;
-    border-radius: 05px 5px 5px 0;
-    background-color: #98e8d8;
-    transform: translateY(-50%);
-}
-.calendar::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    width: 12px;
-    height: 97%;
-    border-radius: 0 05px 5px 0;
-    background-color: #98e8d8;
-    transform: translateY(-50%);
 }
 
 
@@ -124,7 +101,7 @@ html {
 }
 
 .days div:hover:not(.today) {
-    background-color: #f0f0f0;
+    background-color: #6dad83;
     cursor: pointer;
     border: 0.4rem solid #f0f0f0;
 
