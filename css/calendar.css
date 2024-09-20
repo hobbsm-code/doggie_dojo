@@ -135,3 +135,8 @@ footer {
     bottom: -320px;
     
 }
+
+footer h2 {
+    position: relative;
+    bottom: -70px;
+}
