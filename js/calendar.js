@@ -1,8 +1,15 @@
 const TASK_TRACKER_KEY = 'taskTracker';
 const dayCount = 30;
+const userData = JSON.parse(localStorage.getItem('userData'));
+const tasks = JSON.parse(localStorage.getItem('tasks'));
+const tasksList = document.getElementById('#days');
+const userName = localStorage.getItem('userName');
+const calendar = document.getElementById('calendar');
+
+
 
 // Get the user's tasks from local storage
-const getUserTasks = function(userName) {
+const getUserTasks = function (userName) {
     userIndex = getUserIndexFromUserName(userName);
     if (userIndex === null) {
         console.log("User not found: " + userName);
@@ -12,11 +19,11 @@ const getUserTasks = function(userName) {
 }
 
 // Set a user's task for a day to true
-const completeTask = function(userName, day, task) {
+const completeTask = function (userName, day, task) {
     let user = getUserObjectFromUserName(userName);
     let userTaskTracker = user.taskTracker;
-    for(let i = 0; i < userTaskTracker.length; i++) {
-        if(userTaskTracker[i].day === day && userTaskTracker[i].task === task) {
+    for (let i = 0; i < userTaskTracker.length; i++) {
+        if (userTaskTracker[i].day === day && userTaskTracker[i].task === task) {
             userTaskTracker[i].completed = true;
         }
     }
@@ -25,29 +32,29 @@ const completeTask = function(userName, day, task) {
 }
 
 // Get the user's task tracker from local storage
-const getUserTaskTracker = function(userName) {
+const getUserTaskTracker = function (userName) {
     const taskTracker = getUserObjectFromUserName(userName).taskTracker;
     return taskTracker ? taskTracker : [];
 }
 
 // Build a task tracker for a user if one does not already exist
-const buildTaskTracker = function(userName) { 
+const buildTaskTracker = function (userName) {
     const userTaskTracker = getUserTaskTracker(userName);
-    if(userTaskTracker) {
+    if (userTaskTracker) {
         console.log("Task tracker already exists for user: " + userName);
         return;
     } else {
         let user = getUserObjectFromUserName(userName);
-        let tasks = user.tasks;        
+        let tasks = user.tasks;
         let taskTracker = [];
-        if(tasks.length === 0) {
+        if (tasks.length === 0) {
             console.log("No tasks found for user: " + userName);
             return;
         }
-        for(let i = 0; i < dayCount; i++) {
-            for(let j = 0; j < tasks.length; j++) {
+        for (let i = 0; i < dayCount; i++) {
+            for (let j = 0; j < tasks.length; j++) {
                 let dailyTask = {
-                    day: i+1,
+                    day: i + 1,
                     task: tasks[j],
                     completed: false
                 }
@@ -58,3 +65,19 @@ const buildTaskTracker = function(userName) {
         replaceUserInArray(userName, user);
     }
 }
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+console.log(months[0]);
+const currentDate = document.querySelector('.date');
+
+let date = new Date();
+currYear = date.getFullYear();
+currMonth = date.getMonth();
+
+const renderCalendar = () => { 
+    let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
+    console.log(lastDateofMonth);
+    currentDate.innerText = `${months[currMonth]} ${currYear}`;
+};
+
+renderCalendar();
