@@ -77,11 +77,21 @@ currYear = date.getFullYear();
 currMonth = date.getMonth();
 
 const renderCalendar = () => { 
+    let firstDateofMonth = new Date(currYear, currMonth, 1).getDay();
     let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
+    let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+    let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
     let divTag = "";
+
+    for (let i = firstDateofMonth; i > 0; i--) { 
+        divTag += `<div class="inactive">${lastDateofLastMonth -i +1}</div>`;
+    }
 
     for (let i =1; i <= lastDateofMonth; i++) {
         divTag += `<div>${i}</div>`;
+    }
+    for (let i = lastDayofMonth; i < 6; i++) { 
+        divTag += `<div class="inactive">${i - lastDayofMonth + 1}</div>`;
     }
     currentDate.innerText = `${months[currMonth]} ${currYear}`;
     daysTag.innerHTML = divTag;
@@ -91,6 +101,7 @@ renderCalendar();
 
 prevNextIcons.forEach(icon => { 
     icon.addEventListener('click', () => { 
-      currMonth = iconid === 'prev' ? currMonth - 1 : currMonth + 1;
+      currMonth = icon.id === 'prev' ? currMonth - 1 : currMonth + 1;
+      renderCalendar();
     })
 });
