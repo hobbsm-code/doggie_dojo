@@ -140,3 +140,16 @@ footer h2 {
     position: relative;
     bottom: -70px;
 }
+
+.icons span div {
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    text-align: center;
+    line-height: 38px;
+    background: #f2f2f2;
+    border-radius:50%;
+    cursor: pointer;
+    font-size: 1.9rem;
+
+}

@@ -69,6 +69,8 @@ const buildTaskTracker = function (userName) {
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 console.log(months[0]);
 const currentDate = document.querySelector('.date');
+daysTag = document.querySelector('.days');
+prevNextIcons = document.querySelectorAll('.icons span');
 
 let date = new Date();
 currYear = date.getFullYear();
@@ -76,8 +78,19 @@ currMonth = date.getMonth();
 
 const renderCalendar = () => { 
     let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
-    console.log(lastDateofMonth);
+    let divTag = "";
+
+    for (let i =1; i <= lastDateofMonth; i++) {
+        divTag += `<div>${i}</div>`;
+    }
     currentDate.innerText = `${months[currMonth]} ${currYear}`;
+    daysTag.innerHTML = divTag;
 };
 
 renderCalendar();
+
+prevNextIcons.forEach(icon => { 
+    icon.addEventListener('click', () => { 
+      currMonth = iconid === 'prev' ? currMonth - 1 : currMonth + 1;
+    })
+});
