@@ -45,11 +45,18 @@
         <form action="#">
             <h6>New here!? Sign up below and transform your life.</h6>
            <div class="email">
-            <input type="email" name="email" placeholder="Email Address">
-            <button onclick="window.location.href='form.html'">Register</button>
-            
-           </div>
-            </form>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email Address"
+                        />
+                        <button
+                            onclick="event.preventDefault(); window.location.href='form.html'"
+                        >
+                            Register
+                        </button>
+                    </div>
+                </form>
             </div>
         </main>
 
