@@ -70,7 +70,7 @@ const setTrainingTasks = function() {
 }
 
 // Save the user data and task list then redirect to the Calendar page
-const formSubmit = function (event) {
+const formSubmit = function () {
     event.preventDefault();
     saveUserData();
     redirectPage('calendar.html');
