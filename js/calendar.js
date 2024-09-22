@@ -1,25 +1,27 @@
 const TASK_TRACKER_KEY = 'taskTracker';
 const dayCount = 30;
-const userData = JSON.parse(localStorage.getItem('userData'));
-const tasks = JSON.parse(localStorage.getItem('tasks'));
+const userData = JSON.parse(localStorage.getItem('doggieDojoUserData'));
+const tasks = JSON.parse(localStorage.getItem('setTrainingTasks'));
 const tasksList = document.getElementById('#days');
-const userName = localStorage.getItem('userName');
+const userName = JSON.parse(localStorage.getItem('getUserObjectFromUserName'));
 const calendar = document.getElementById('calendar');
 
-
+const userNameInput = document.querySelector('#username');
+const userIndex = getUserIndexFromUserName(userName);
 
 // Get the user's tasks from local storage
 const getUserTasks = function (userName) {
     userIndex = getUserIndexFromUserName(userName);
     if (userIndex === null) {
-        console.log("User not found: " + userName);
-        return [];
+        return null;
     }
-    return userData[userIndex].tasks;
+    else {
+        return userData[userIndex].tasks;
+    }
 }
 
 // Set a user's task for a day to true
-const completeTask = function (userName, day, task) {
+function completeTask(userName, day, task) {
     let user = getUserObjectFromUserName(userName);
     let userTaskTracker = user.taskTracker;
     for (let i = 0; i < userTaskTracker.length; i++) {
@@ -33,9 +35,15 @@ const completeTask = function (userName, day, task) {
 
 // Get the user's task tracker from local storage
 const getUserTaskTracker = function (userName) {
-    const taskTracker = getUserObjectFromUserName(userName).taskTracker;
-    return taskTracker ? taskTracker : [];
+    userIndex = getUserIndexFromUserName(userName);
+    if (userIndex === null) {
+        return null;
+    } else {
+        return userData[userIndex].taskTracker;
+    }
 }
+
+// Get the user's task tracker from local storage
 
 // Build a task tracker for a user if one does not already exist
 const buildTaskTracker = function (userName) {
@@ -76,21 +84,21 @@ let date = new Date();
 currYear = date.getFullYear();
 currMonth = date.getMonth();
 
-const renderCalendar = () => { 
+const renderCalendar = () => {
     let firstDateofMonth = new Date(currYear, currMonth, 1).getDay();
     let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
     let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
     let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
     let divTag = "";
 
-    for (let i = firstDateofMonth; i > 0; i--) { 
-        divTag += `<div class="inactive">${lastDateofLastMonth -i +1}</div>`;
+    for (let i = firstDateofMonth; i > 0; i--) {
+        divTag += `<div class="inactive">${lastDateofLastMonth - i + 1}</div>`;
     }
 
-    for (let i =1; i <= lastDateofMonth; i++) {
+    for (let i = 1; i <= lastDateofMonth; i++) {
         divTag += `<div>${i}</div>`;
     }
-    for (let i = lastDayofMonth; i < 6; i++) { 
+    for (let i = lastDayofMonth; i < 6; i++) {
         divTag += `<div class="inactive">${i - lastDayofMonth + 1}</div>`;
     }
     currentDate.innerText = `${months[currMonth]} ${currYear}`;
@@ -99,9 +107,50 @@ const renderCalendar = () => {
 
 renderCalendar();
 
-prevNextIcons.forEach(icon => { 
-    icon.addEventListener('click', () => { 
-      currMonth = icon.id === 'prev' ? currMonth - 1 : currMonth + 1;
-      renderCalendar();
+prevNextIcons.forEach(icon => {
+    icon.addEventListener('click', () => {
+        currMonth = icon.id === 'prev' ? currMonth - 1 : currMonth + 1;
+        renderCalendar();
     })
 });
+
+const tasksButton = document.querySelector('.days');
+addTasksCloseBtn = document.querySelector('.close');
+const tasksBar = document.getElementById('#bar');
+addTasksTitle = document.querySelector('title');
+addTasks = document.querySelector('.add-tasks');
+addTodaysDate = document.querySelector('.todays-date');
+
+addTasksCloseBtn.addEventListener('click', () => {
+    tasksBar.classList.remove('active');
+});
+
+tasksButton.addEventListener('click', (e) => {
+    const tasks = JSON.parse(localStorage.getItem('setTrainingTasks'));
+    if (e.target.tagName === 'DIV') {
+        let tasksHTML = 'tasks';
+
+        for (let i = 0; i < tasks; i++) {
+            tasksHTML += `<div class="task">
+            <input type="checkbox" id="${tasks[i]}" name="${tasks[i]}">
+            <label for="${tasks[i]}">${tasks[i]}</label>
+            </div>`;
+        }
+
+    }
+});
+
+///taskButton to hide and show the task bar
+const taskButton = document.querySelector('.task-button');
+taskButton.addEventListener('click', (e) => {
+    if (e.target.tagname === 'Div') {
+    tasksBar.classList.add('active');
+    }
+    else {
+        tasksBar.classList.remove('active');
+    }
+});
+
+
+
+

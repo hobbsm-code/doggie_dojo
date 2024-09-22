@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:fantasy, sans-serif;
+    font-family: fantasy, sans-serif;
 }
 
 html {
@@ -39,24 +39,22 @@ html {
     padding: 0 2rem;
     text-align: center;
     text-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
-}
-
-.month i { 
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-
-.month h1 {
+    color: #b9b922;
+    letter-spacing: 0.1rem;
     font-size: 2rem;
     font-weight: 300;
-    color: #b9b922;
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
     margin-bottom: 1rem;
 }
 
-.month p{
+
+
+
+
+
+
+
+.month p {
     width: 100%;
     height: 5rem;
     padding: 0 0.5rem;
@@ -74,7 +72,7 @@ html {
     font-size: 1.5rem;
     font-weight: 300%;
     letter-spacing: 0.1rem;
-    width:calc(44.2rem / 7);
+    width: calc(44.2rem / 7);
     display: flex;
     justify-content: center;
     text-shadow: 0. .3rem .5rem rgba(0, 0, 0, 0.5);
@@ -125,15 +123,15 @@ footer {
     background-color: red;
     color: white;
     text-align: center;
-    background-color: #4d0808;;
-    color:#f1f1f1;
+    background-color: #4d0808;
+    color: #f1f1f1;
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     padding: 0 1rem;
     justify-content: space-between;
     line-height: 300%;
     bottom: -320px;
-    
+
 }
 
 footer h2 {
@@ -148,8 +146,108 @@ footer h2 {
     text-align: center;
     line-height: 38px;
     background: #f2f2f2;
-    border-radius:50%;
+    border-radius: 50%;
     cursor: pointer;
     font-size: 1.9rem;
 
 }
+
+fas fa-angle-right next {
+    color: #ebe2e2;
+    content: ">";
+}
+fas fa-angle-left prev {
+    color: #ebe2e2;
+    content: "<";
+}
+
+.tasksbar div{
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    background-color: #4d0808;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.tasksbar .tasks div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 95%;
+    min-height:70px;
+    background-color: #f2f2f2;
+    color: #4d0808;
+    background: linear-gradient(90deg, #f2f2f2, transparent);
+    gap:5px;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0 20px;
+    padding-left: 50px;
+    cursor: pointer;
+    position: relative;
+    right: -100px;
+}
+.tasksbar .tasks div:nth-child(event){
+    background:transparent;
+}
+.tasksbar .tasks div:hover {
+    background: linear-gradient(90deg, var(--primary-clr), transparent);
+}
+.tasksbar .tasks .title div{ 
+    display:flex;
+    align-items: center;
+    pointer-events: none;
+}
+.tasksbar .tasks .title .tasks-title{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #4d0808;
+    margin-left: 20px;
+}
+.tasksbar .tasks:hover .title i{
+    color: var(--primary-clr);  
+    font-size: 0.5rem;
+}
+.tasksbar .tasks:hover .title i {
+    color: #f2f2f2;
+}
+.tasks div span{
+    position: relative;
+    right: -100px;
+}
+.tasks div ::after{
+    content: "✓";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f2f2f2;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+ aside {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 15rem;
+    height: 50rem;
+    top: -860px;
+    right: -1100px;
+    background-color: #f2f2f2;
+   
+    
+ }
+ .close button{
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    right: -100px;
+    bottom: -1000px;
+    place-items: top;
+ }

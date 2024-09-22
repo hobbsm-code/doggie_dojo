@@ -1,4 +1,4 @@
-const USER_DATA_KEY = 'doggieDojoUserData';
+
 
 const saveToLocalStorage = function(key, value) {
     localStorage.setItem(key, value);
@@ -17,7 +17,7 @@ const redirectPage = function (url) {
 
 // Load user data from local storage
 const loadUserDataArray = function() {
-  let userData = loadFromLocalStorage(USER_DATA_KEY);
+  let userData = loadFromLocalStorage("doggieDojoUserData");
   if(userData === null || Array.length === 0) {
       userData = [];
   } else {
