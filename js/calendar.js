@@ -1,5 +1,7 @@
 const TASK_TRACKER_KEY = 'taskTracker';
 const dayCount = 30;
+let currentUser;
+let currentUserTaskTracker;
 const userData = JSON.parse(localStorage.getItem('doggieDojoUserData'));
 const tasks = JSON.parse(localStorage.getItem('setTrainingTasks'));
 const tasksList = document.getElementById('#days');
@@ -7,7 +9,7 @@ const userName = JSON.parse(localStorage.getItem('getUserObjectFromUserName'));
 const calendar = document.getElementById('calendar');
 
 const userNameInput = document.querySelector('#username');
-const userIndex = getUserIndexFromUserName(userName);
+let userIndex = getUserIndexFromUserName(userName);
 
 // Get the user's tasks from local storage
 const getUserTasks = function (userName) {
@@ -33,6 +35,19 @@ function completeTask(userName, day, task) {
     replaceUserInArray(userName, user);
 }
 
+// Set a user's task for a day to false
+function uncompleteTask(userName, day, task) {
+    let user = getUserObjectFromUserName(userName);
+    let userTaskTracker = user.taskTracker;
+    for (let i = 0; i < userTaskTracker.length; i++) {
+        if (userTaskTracker[i].day === day && userTaskTracker[i].task === task) {
+            userTaskTracker[i].completed = false;
+        }
+    }
+    user.taskTracker = userTaskTracker;
+    replaceUserInArray(userName, user);
+}
+
 // Get the user's task tracker from local storage
 const getUserTaskTracker = function (userName) {
     userIndex = getUserIndexFromUserName(userName);
@@ -43,21 +58,28 @@ const getUserTaskTracker = function (userName) {
     }
 }
 
-// Get the user's task tracker from local storage
+const getUserTaskStatusForDay = function (userName, day) {
+    let userTaskTracker = getUserTaskTracker(userName);
+    let taskStatus = [];
+    for (let i = 0; i < userTaskTracker.length; i++) {
+        if (userTaskTracker[i].day == day) {
+            taskStatus.push(userTaskTracker[i]);
+        }
+    }
+    return taskStatus;
+}
 
 // Build a task tracker for a user if one does not already exist
 const buildTaskTracker = function (userName) {
-    const userTaskTracker = getUserTaskTracker(userName);
+    let userTaskTracker = getUserTaskTracker(userName);
     if (userTaskTracker) {
         console.log("Task tracker already exists for user: " + userName);
-        return;
     } else {
         let user = getUserObjectFromUserName(userName);
         let tasks = user.tasks;
-        let taskTracker = [];
+        let userTaskTracker = [];
         if (tasks.length === 0) {
             console.log("No tasks found for user: " + userName);
-            return;
         }
         for (let i = 0; i < dayCount; i++) {
             for (let j = 0; j < tasks.length; j++) {
@@ -66,12 +88,13 @@ const buildTaskTracker = function (userName) {
                     task: tasks[j],
                     completed: false
                 }
-                taskTracker.push(dailyTask);
+                userTaskTracker.push(dailyTask);
             }
         }
-        user[TASK_TRACKER_KEY] = taskTracker;
+        user[TASK_TRACKER_KEY] = userTaskTracker;
         replaceUserInArray(userName, user);
     }
+    return userTaskTracker;
 }
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -96,7 +119,7 @@ const renderCalendar = () => {
     }
 
     for (let i = 1; i <= lastDateofMonth; i++) {
-        divTag += `<div>${i}</div>`;
+        divTag += `<div class="calendarDay" id="${i}">${i}</div>`;
     }
     for (let i = lastDayofMonth; i < 6; i++) {
         divTag += `<div class="inactive">${i - lastDayofMonth + 1}</div>`;
@@ -105,8 +128,6 @@ const renderCalendar = () => {
     daysTag.innerHTML = divTag;
 };
 
-renderCalendar();
-
 prevNextIcons.forEach(icon => {
     icon.addEventListener('click', () => {
         currMonth = icon.id === 'prev' ? currMonth - 1 : currMonth + 1;
@@ -114,43 +135,105 @@ prevNextIcons.forEach(icon => {
     })
 });
 
-const tasksButton = document.querySelector('.days');
+const tasksButton = document.querySelector('.calendarDay');
+const daysWrapper = document.querySelector('.days');
 addTasksCloseBtn = document.querySelector('.close');
-const tasksBar = document.getElementById('#bar');
+const tasksBar = document.querySelector('.bar');
 addTasksTitle = document.querySelector('title');
 addTasks = document.querySelector('.add-tasks');
+const addTasksWrapper = document.querySelector('.add-tasks-wrapper');
 addTodaysDate = document.querySelector('.todays-date');
 
-addTasksCloseBtn.addEventListener('click', () => {
-    tasksBar.classList.remove('active');
-});
+currentUserName = 'Butch';
 
-tasksButton.addEventListener('click', (e) => {
-    const tasks = JSON.parse(localStorage.getItem('setTrainingTasks'));
-    if (e.target.tagName === 'DIV') {
-        let tasksHTML = 'tasks';
+window.onload = function() {
+    currentUser = getUserObjectFromUserName(currentUserName);
+    currentUserTaskTracker = buildTaskTracker(currentUserName);
+    hideTasksBar();
+    renderCalendar();
+}
 
-        for (let i = 0; i < tasks; i++) {
-            tasksHTML += `<div class="task">
-            <input type="checkbox" id="${tasks[i]}" name="${tasks[i]}">
-            <label for="${tasks[i]}">${tasks[i]}</label>
-            </div>`;
+const removeTasksFromDom = function() { 
+    if(addTasksWrapper.hasChildNodes()) {
+        while (addTasksWrapper.firstChild) {
+            addTasksWrapper.removeChild(addTasksWrapper.firstChild);
         }
-
     }
+}
+
+function hideTasksBar() {
+    tasksBar.style.width = 0;
+    document.querySelector('.bar').setAttribute('hidden', true);
+    document.querySelector('.taskbar').setAttribute('hidden', true);
+    document.querySelector('.task').setAttribute('hidden', true);
+    document.querySelector('.tasks').setAttribute('hidden', true);
+    document.querySelector('.task > .month').setAttribute('hidden', true);
+    document.querySelector('.add-tasks-title').setAttribute('hidden', true);
+    document.querySelector('.close').setAttribute('hidden', true);
+}
+
+function unhideTasksBar() {
+    tasksBar.style.width = '250px';
+    document.querySelector('.bar').removeAttribute('hidden');
+    document.querySelector('.taskbar').removeAttribute('hidden');
+    document.querySelector('.task').removeAttribute('hidden');
+    document.querySelector('.tasks').removeAttribute('hidden');
+    document.querySelector('.task > .month').removeAttribute('hidden');
+    document.querySelector('.add-tasks-title').removeAttribute('hidden');
+    document.querySelector('.close').removeAttribute('hidden');
+}
+
+
+addTasksCloseBtn.addEventListener('click', () => {
+    removeTasksFromDom();
+    hideTasksBar();
 });
 
-///taskButton to hide and show the task bar
-const taskButton = document.querySelector('.task-button');
-taskButton.addEventListener('click', (e) => {
-    if (e.target.tagname === 'Div') {
-    tasksBar.classList.add('active');
-    }
-    else {
-        tasksBar.classList.remove('active');
-    }
+daysWrapper.addEventListener('click', (e) => {
+    // e.stopPropagation();
+    removeTasksFromDom();
+    const day = e.target.id;
+    console.log(`Day: ${day}`);
+    console.log(`Current User: ${currentUserName}`);
+    const currentDayTasks = getUserTaskStatusForDay(currentUserName, day);
+    console.log(`Current Day Tasks: ${currentDayTasks}`);
+    unhideTasksBar();
+    addTasksToDOM(currentDayTasks);
+
 });
 
+const addTasksToDOM = function(taskArray) {
+    for (let i = 0; i < taskArray.length; i++) {
+        const task = taskArray[i].task;
+        const status = taskArray[i].completed;
+        const taskElement = document.createElement('div');
+        taskElement.classList.add('task');
+        taskElement.style.paddingLeft = '5px';
+        const inputElement = document.createElement('input');
+        inputElement.type = 'checkbox';
+        inputElement.id = task;
+        inputElement.name = task;
+        inputElement.checked = status;
+        const labelElement = document.createElement('label');
+        labelElement.for = task;
+        labelElement.textContent = task;
+        labelElement.style.padding = '5px';
+        taskElement.appendChild(inputElement);
+        taskElement.appendChild(labelElement);
+        addTasksWrapper.appendChild(taskElement);
+    }
+}
 
 
+
+
+
+
+// completeTask('Butch', 14, 'Use a blanket');
+// completeTask('Butch', 14, 'Be patient');
+// const tasksButchDay14 = getUserTaskStatusForDay('Butch', 14);
+// const tasksButch = getUserTasks('Butch');
+
+
+// addTasksToDOM(tasksButchDay14);
 

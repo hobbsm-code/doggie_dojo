@@ -39,6 +39,7 @@ const buildUserDataObjectFromInputs = function() {
 const saveUserData = function() {
     const userData = buildUserDataObjectFromInputs();
     const userDataArray = loadUserDataArray();
+    currentUserName = userData.userName;
     userDataArray.push(userData);
     saveToLocalStorage(USER_DATA_KEY, JSON.stringify(userDataArray));
 }
@@ -70,7 +71,7 @@ const setTrainingTasks = function() {
 }
 
 // Save the user data and task list then redirect to the Calendar page
-const formSubmit = function () {
+const formSubmit = function (event) {
     event.preventDefault();
     saveUserData();
     redirectPage('calendar.html');

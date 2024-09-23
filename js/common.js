@@ -1,4 +1,4 @@
-
+let currentUserName = '';
 
 const saveToLocalStorage = function(key, value) {
     localStorage.setItem(key, value);
@@ -54,7 +54,7 @@ const replaceUserInArray = function(userName, newUserData) {
   const userIndex = getUserIndexFromUserName(userName);
   if (userIndex !== null) {
     userData[userIndex] = newUserData;
-    saveToLocalStorage(USER_DATA_KEY, JSON.stringify(userData));
+    saveToLocalStorage('doggieDojoUserData', JSON.stringify(userData));
   }
 };
 
