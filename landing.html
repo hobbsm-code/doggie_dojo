@@ -19,46 +19,56 @@
         <header>
             <div class="dogContainer">
                 <nav class="navbar">
-                <a href="#">
-                    <img
-                        src="assets/images/dogIcon.png"
-                        class="dogLogo"
-                        alt="Dog Icon"
-                    />
-                </a>
-                <div class="right">
-                    <button onclick="window.location.href='calendar.html'">Sign In</button>
-                </div>
+                    <a href="#">
+                        <img
+                            src="assets/images/dogIcon.png"
+                            class="dogLogo"
+                            alt="Dog Icon"
+                        />
+                    </a>
+
+                    <button id="signInBtn" class="right">Sign In</button>
+                </nav>
             </div>
-            </nav>
-         
         </header>
 
-        
         <main class="title">
             <div class="content">
-            <h1>Doggie Dojo</h1>
-            <h2>
-                Unleash the potential in your pooch: Track, Train, and
-                Transform with ease!
-            </h2>
-        <form action="#">
-            <h6>New here!? Sign up below and transform your life.</h6>
-           <div class="email">
+                <h1>Doggie Dojo</h1>
+                <h2>
+                    Unleash the potential in your pooch: Track, Train, and
+                    Transform with ease!
+                </h2>
+                <form action="">
+                    <h6>New here!? Sign up below and transform your life.</h6>
+                    <div class="email">
                         <input
                             type="email"
                             name="email"
                             placeholder="Email Address"
                         />
-                        <button
-                            onclick="event.preventDefault(); window.location.href='form.html'"
-                        >
-                            Register
-                        </button>
+                        <button id="registerBtn">Register</button>
                     </div>
                 </form>
             </div>
         </main>
+
+        <!-- Modal Section -->
+        <section class="modal hidden">
+            <div class="flex">
+                <button class="btn-close">⨉</button>
+            </div>
+            <div>
+                <h3>Sign into your account.</h3>
+            </div>
+
+            <input type="email" id="email" placeholder="Email" />
+            <input type="text" id="password" placeholder="Password" />
+            <button class="btn">Sign In</button>
+        </section>
+
+        <!-- Overlay -->
+        <div class="overlay hidden"></div>
 
         <footer>
             <p>&copy; 2024 Doggie Dojo. All rights reserved.</p>
