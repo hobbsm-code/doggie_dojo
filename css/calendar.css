@@ -276,7 +276,7 @@ fas fa-angle-left prev {
     position: relative;
     right: -100px;
 }
-.tasks div ::after{
+/* .tasks div ::after{
     content: "✓";
     position: absolute;
     width: 0;
@@ -287,15 +287,14 @@ fas fa-angle-left prev {
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
-}
+} */
  aside {
     position: relative;
     display: inline-block;
     vertical-align: top;
-    width: 15rem;
+    width: 20rem;
     height: 50rem;
-    top: -860px;
-    right: -1100px;
+    left: 5px;
     background-color: #f2f2f2;
    
     
