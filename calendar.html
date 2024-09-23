@@ -7,46 +7,38 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/calendar.css">
     <title>Training Calendar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 
 
 <body>
     <header>
-        <nav>
-            <a href="landing.html">Home</a>
-        </nav>
+        <div class="header">
+            <a href="#default" class="logo">DoggieDojo</a>
+            <div class="header-right">
+                <a class="active" href="landing.html">Home</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+            </div>
+        </div>
     </header>
+    <main>
 
 
-    
         <div class="container">
+            <h1>Training Calendar</h1>
             <div class="calendar">
                 <div class="month">
-                    <i class="fas fa-angle-left prev"></i>
-                    <div class="date">
-                        <h1>Septmeber</h1>
-                        <p>Tue September 17, 2024</p>
-                    </div>
-                    <i class="fas fa-angle-right next"></i>
-                   <div class="weekdays">
-                        <div>Sun</div>
-                        <div>Mon</div>
-                        <div>Tue</div>
-                        <div>Wed</div>
-                        <div>Thu</div>
-                        <div>Fri</div>
-                        <div>Sat</div>
 
-    <div class="container">
-        <div class="calendar">
-            <div class="month">
-                <i class="fas fa-angle-left prev"></i>
-                <div class="date">
-                    <h1>September</h1>
-                    <p>Tue September 17, 2024</p>
+                    <div class="date">
+                        <h2>September</h2>
+
+                    </div>
+                    <div class="icons">
+                        <span id="prev" class="fa fa-chevron-left" style="font-size:24px"> ❮ </span>
+                        <span id="next" class="fa fa-chevron-right" style="font-size:24px">❯</span>
+                        <br>
+                    </div>
                 </div>
-                <i class="fas fa-angle-right next"></i>
                 <div class="weekdays">
                     <div>Sun</div>
                     <div>Mon</div>
@@ -55,78 +47,77 @@
                     <div>Thu</div>
                     <div>Fri</div>
                     <div>Sat</div>
-
                 </div>
                 <div class="days">
-                    <div class="prev-date">26</div>
-                    <div class="prev-date">27</div>
-                    <div class="prev-date">28</div>
-                    <div class="prev-date">29</div>
-                    <div class="prev-date">30</div>
-                    <div class="prev-date">31</div>
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
-                    <div>10</div>
-                    <div>11</div>
-                    <div>12</div>
-                    <div>13</div>
-                    <div>14</div>
-                    <div>15</div>
-                    <div>16</div>
-                    <div>17</div>
-                    <div>18</div>
-                    <div>19</div>
-                    <div>20</div>
-                    <div>21</div>
-                    <div>22</div>
-                    <div>23</div>
-                    <div>24</div>
-                    <div>25</div>
-                    <div>26</div>
-                    <div>27</div>
-                    <div>28</div>
-                    <div>29</div>
-                    <div>30</div>
-                    <div>31</div>
-                    <div class="next-date">1</div>
-                    <div class="next-date">2</div>
-                    <div class="next-date">3</div>
-                    <div class="next-date">4</div>
-                    <div class="next-date">5</div>
-                    <div class="next-date">6</div>
 
-
+                    <div class="prev-date">1</div>
+                    <div class="today-date"></div>
+                    <div class="today-tasks"></div>
+                    <div>i</div>
 
                 </div>
             </div>
+            <aside class="bar" hidden="true">
+                <div class="taskbar" hidden="true">
+                    <div class="tasks" hidden="true">
+                        <div class="task" hidden="true">
+                            <div class="month" hidden="true">
+                                <h3 class="add-tasks-title">Daily Training</h3>
+                                <button class="close">✖</button>
+                            </div>
+                            <div class="add-tasks-wrapper">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
         </div>
+        <aside class="Progress" hidden="true">
+            <div class="progress-bar" hidden="true">
+                <div class="progress" hidden="true">
+                    <h3 class="add-images">Progress</h3>
+                    <img class= "yellow" hidden="true" src=".\images\Leonardo_Phoenix_animated_gif_of_a_small_adorable_karate_dog_w_1.jpg"
+                        alt="yellow belt">
+                    <img class="orange" hidden="true" src=".\images\Leonardo_Phoenix_A_dynamic_animated_GIF_of_a_small_fluffy_Karo_3.jpg"
+                        alt="orange belt">
+                    <img class="green" hidden="true" src=".\images\Leonardo_Phoenix_A_dynamic_GIF_features_a_determined_Karate_do_3.jpg"
+                        alt="green belt">
+                    <img class="black" hidden="true" src=".\images\Leonardo_Phoenix_A_humorous_animated_gif_showcasing_a_karate_d_2.jpg"
+                        alt="black belt">
+                </div>
+                <div class="add-tasks-wrapper"></div>
 
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <h2>Training Videos</h2>
+        <h6>Obedience</h6>
+        <iframe width="320" height="240" src="https://www.youtube.com/embed/jFMA5ggFsXU?si=WXu3paZFWnrZ_iWJ"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h6>Agility</h6>
+        <iframe width="320" height="240" src="https://www.youtube.com/embed/vkxggodZzqc?si=dJspd96TlzfaTNFM"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h6>Tracking</h6>
+        <iframe width="320" height="240" src="https://www.youtube.com/embed/ZA_e6sNQ1m8?si=nt-qW5r_HlDde_do"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h6>Protection</h6>
+        <iframe width="320" height="240" src="https://www.youtube.com/embed/w-__bfafbCE?si=MyAB5hdoJ6HIQczj"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script defer src="./js/common.js" type="text/javascript"></script>
-        <script defer src="./js/calendar.js" type="text/javascript"></script>
-
+    </footer>
+    <script defer src="./js/common.js" type="text/javascript"></script>
+    <script defer src="./js/calendar.js" type="text/javascript"></script>
 </body>
 
-
-<footer>
-    <h2>Training Videos</h2>
-        <h6>Obedience</h6>
-        <iframe width="320" height="240" src="https://www.youtube.com/embed/jFMA5ggFsXU?si=WXu3paZFWnrZ_iWJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <h6>Agility</h6>
-        <iframe width="320" height="240" src="https://www.youtube.com/embed/vkxggodZzqc?si=dJspd96TlzfaTNFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <h6>Tracking</h6>
-        <iframe width="320" height="240" src="https://www.youtube.com/embed/ZA_e6sNQ1m8?si=nt-qW5r_HlDde_do" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <h6>Protection</h6>
-        <iframe width="320" height="240" src="https://www.youtube.com/embed/w-__bfafbCE?si=MyAB5hdoJ6HIQczj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <script src="calendar.js"></script>
-  
-</footer>
 </html>

@@ -1,47 +1,332 @@
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: fantasy, sans-serif;
 }
+
+html {
+    width: 100%;
+    height: 100vh;
+}
+
+.header {
+    background-image: url(https://t3.ftcdn.net/jpg/06/12/27/84/360_F_612278478_i2TEWZ37SoSByvlJFrmp1vMbECz994zs.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-color: #5a4545;
+    padding: 20px 10px;
+  }
+  
+
+  .header a {
+    float: left;
+    color: rgb(162, 159, 159);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  
+  .header a.logo {
+    font-size: 45px;
+    font-weight: bold;
+    color: rgb(30, 29, 41);
+  }
+  
+
+  .header a:hover {
+    background-color: #ddd;
+    color: rgb(75, 66, 66);
+  }
+  
+
+  .header a.active {
+    background-color: rgba(92, 3, 3, 0.444);
+    color: white;
+  }
+  
+
+  .header-right {
+    float: right;
+  }
+  
+
+  h1 {
+    position: absolute;
+    top: 0;
+    text-align: center;
+  
+  }
+
 
 .container {
     max-width: none;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100%;
-    background-color: #f1f1f1;
-    color: #d33737;
+    background-color: #7d7b82;
 }
 
-.calendar  {
+.calendar {
+    position: relative;
     width: 45rem;
-    height: 54rem;
-    background-color: #4d0808;
+    height: 50rem;
+    background-color: #fff;
     box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.5);
 }
 
 
-.month  {
+.month {
     width: 100%;
     height: 12rem;
-    background-color: chartreuse;
+    background-color: rgb(81, 103, 122);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 2rem;
     text-align: center;
+    text-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
+}
 
+.month i { 
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 
-.days div{
+.month h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #b9b922;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+
+
+.month p {
     width: 100%;
-    height: 4rem;
-    background-color: #f1f1f1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
+    height: 5rem;
+    padding: 0 0.5rem;
 }
+
+.weekdays {
+    width: 100%;
+    height: 3rem;
+    padding: 0 0.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.weekdays div {
+    font-size: 1.5rem;
+    font-weight: 300%;
+    letter-spacing: 0.1rem;
+    width: calc(44.2rem / 7);
+    display: flex;
+    justify-content: center;
+    text-shadow: 0. .3rem .5rem rgba(0, 0, 0, 0.5);
+
+}
+
+.days {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.4rem;
+}
+
+.days div {
+    font-size: 1.2rem;
+    margin: 0.3rem;
+    width: calc(39.2rem / 7);
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    text-shadow: 0 0.3rem .5rem rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s;
+
+}
+
+.days div:hover:not(.today) {
+    background-color: #6dad83;
+    cursor: pointer;
+    border: 0.4rem solid #f0f0f0;
+
+}
+
+
+
+.prev-date,
+.next-date {
+    opacity: 0.5;
+}
+
+
+.today {
+    background-color: #a34daf;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    background-color: #4d0808;
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: row;
+    padding: 0 1rem;
+    justify-content: space-between;
+    line-height: 300%;
+    bottom: -320px;
+
+}
+
+footer h2 {
+    position: relative;
+    bottom: -70px;
+}
+
+.icons span div {
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    text-align: center;
+    line-height: 38px;
+    background: #f2f2f2;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.9rem;
+
+}
+
+fas fa-angle-right next {
+    color: #ebe2e2;
+    content: ">";
+}
+fas fa-angle-left prev {
+    color: #ebe2e2;
+    content: "<";
+}
+
+.tasksbar div{
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    background-color: #4d0808;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.tasksbar .tasks div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 95%;
+    min-height:70px;
+    background-color: #f2f2f2;
+    color: #4d0808;
+    background: linear-gradient(90deg, #f2f2f2, transparent);
+    gap:5px;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0 20px;
+    padding-left: 50px;
+    cursor: pointer;
+    position: relative;
+    right: -100px;
+}
+.tasksbar .tasks div:nth-child(event){
+    background:transparent;
+}
+.tasksbar .tasks div:hover {
+    background: linear-gradient(90deg, var(--primary-clr), transparent);
+}
+.tasksbar .tasks .title div{ 
+    display:flex;
+    align-items: center;
+    pointer-events: none;
+}
+.tasksbar .tasks .title .tasks-title{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #4d0808;
+    margin-left: 20px;
+}
+.tasksbar .tasks:hover .title i{
+    color: var(--primary-clr);  
+    font-size: 0.5rem;
+}
+.tasksbar .tasks:hover .title i {
+    color: #f2f2f2;
+}
+.tasks div span{
+    position: relative;
+    right: -100px;
+}
+/* .tasks div ::after{
+    content: "✓";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f2f2f2;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+} */
+ aside {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 20rem;
+    height: 50rem;
+    left: 5px;
+    background-color: #f2f2f2;
+   
+    
+ }
+ .close button{
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    right: -100px;
+    bottom: -1000px;
+    place-items: top;
+ }
+
+
+ @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .header-right {
+      float: none;
+    }
+  }
+  .progress aside {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 20rem;
+    height: 50rem;
+    left: 5px;
+    background-color: #f2f2f2;
+   
+    
+ }

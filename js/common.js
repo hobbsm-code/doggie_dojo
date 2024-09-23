@@ -1,10 +1,10 @@
-const USER_DATA_KEY = 'doggieDojoUserData';
+let currentUserName = '';
 
-const saveToLocalStorage = function(key, value) {
+function saveToLocalStorage(key, value) {
     localStorage.setItem(key, value);
 }
 
-const loadFromLocalStorage = function(key) {
+function loadFromLocalStorage(key) {
     return localStorage.getItem(key);
 }; 
 
@@ -17,7 +17,7 @@ const redirectPage = function (url) {
 
 // Load user data from local storage
 const loadUserDataArray = function() {
-  let userData = loadFromLocalStorage(USER_DATA_KEY);
+  let userData = loadFromLocalStorage("doggieDojoUserData");
   if(userData === null || Array.length === 0) {
       userData = [];
   } else {
@@ -50,11 +50,11 @@ const getUserIndexFromUserName = function (userName) {
 }
 
 const replaceUserInArray = function(userName, newUserData) {
-  const userData = loadUserDataArray();
+  let userData = loadUserDataArray();
   const userIndex = getUserIndexFromUserName(userName);
   if (userIndex !== null) {
     userData[userIndex] = newUserData;
-    saveToLocalStorage(USER_DATA_KEY, JSON.stringify(userData));
+    saveToLocalStorage('doggieDojoUserData', JSON.stringify(userData));
   }
 };
 

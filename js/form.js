@@ -39,6 +39,7 @@ const buildUserDataObjectFromInputs = function() {
 const saveUserData = function() {
     const userData = buildUserDataObjectFromInputs();
     const userDataArray = loadUserDataArray();
+    currentUserName = userData.userName;
     userDataArray.push(userData);
     saveToLocalStorage(USER_DATA_KEY, JSON.stringify(userDataArray));
 }
