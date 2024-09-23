@@ -13,6 +13,7 @@ let userIndex = getUserIndexFromUserName(userName);
 
 // Get the user's tasks from local storage
 function getUserTasks(userName) {
+function getUserTasks(userName) {
     userIndex = getUserIndexFromUserName(userName);
     if (userIndex === null) {
         return null;
@@ -28,6 +29,7 @@ function completeTask(userName, day, task) {
     let userTaskTracker = user.taskTracker;
     for (let i = 0; i < userTaskTracker.length; i++) {
         if (userTaskTracker[i].day == day && userTaskTracker[i].task == task) {
+        if (userTaskTracker[i].day == day && userTaskTracker[i].task == task) {
             userTaskTracker[i].completed = true;
         }
     }
@@ -41,6 +43,7 @@ function uncompleteTask(userName, day, task) {
     let userTaskTracker = user.taskTracker;
     for (let i = 0; i < userTaskTracker.length; i++) {
         if (userTaskTracker[i].day == day && userTaskTracker[i].task == task) {
+        if (userTaskTracker[i].day == day && userTaskTracker[i].task == task) {
             userTaskTracker[i].completed = false;
         }
     }
@@ -52,13 +55,18 @@ function uncompleteTask(userName, day, task) {
 function getUserTaskTracker(userName) {
     const userDataArray = loadUserDataArray();
     const userIndex = getUserIndexFromUserName(userName);
+function getUserTaskTracker(userName) {
+    const userDataArray = loadUserDataArray();
+    const userIndex = getUserIndexFromUserName(userName);
     if (userIndex === null) {
         return null;
     } else {
         return userDataArray[userIndex].taskTracker;
+        return userDataArray[userIndex].taskTracker;
     }
 }
 
+function getUserTaskStatusForDay (userName, day) {
 function getUserTaskStatusForDay (userName, day) {
     let userTaskTracker = getUserTaskTracker(userName);
     let taskStatus = [];
@@ -209,6 +217,7 @@ const addTasksToDOM = function(taskArray) {
         const inputElement = document.createElement('input');
         inputElement.type = 'checkbox';
         inputElement.id = task;
+        inputElement.dataset.day = taskArray[i].day;
         inputElement.dataset.day = taskArray[i].day;
         inputElement.name = task;
         inputElement.checked = status;
