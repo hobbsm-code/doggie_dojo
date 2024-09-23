@@ -31,9 +31,15 @@ signInBtn.addEventListener('click', function (event) {
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    let isValid = false;
 
     if (email && password) {
-        window.location.href = 'calendar.html';
+        if(getUserObjectFromUserName(email)) {
+            saveToLocalStorage('currentUserName', email);
+            window.location.href = 'calendar.html';
+        } else {
+            alert('User not found');
+        }
     } else {
         alert('Please enter both email and password');
     }

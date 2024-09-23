@@ -39,7 +39,7 @@ const buildUserDataObjectFromInputs = function() {
 const saveUserData = function() {
     const userData = buildUserDataObjectFromInputs();
     const userDataArray = loadUserDataArray();
-    currentUserName = userData.userName;
+    saveToLocalStorage('currentUserName', userData.userName);
     userDataArray.push(userData);
     saveToLocalStorage(USER_DATA_KEY, JSON.stringify(userDataArray));
 }
@@ -91,5 +91,5 @@ const populateActivityOptions = function() {
 populateActivityOptions();
 formElement.addEventListener('submit', formSubmit);
 cancelButton.addEventListener('click', function() {
-    redirectPage('index.html');
+    redirectPage('landing.html');
 });

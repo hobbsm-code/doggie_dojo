@@ -1,4 +1,3 @@
-let currentUserName = '';
 
 function saveToLocalStorage(key, value) {
     localStorage.setItem(key, value);
