@@ -319,3 +319,14 @@ fas fa-angle-left prev {
       float: none;
     }
   }
+  .progress aside {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 20rem;
+    height: 50rem;
+    left: 5px;
+    background-color: #f2f2f2;
+   
+    
+ }

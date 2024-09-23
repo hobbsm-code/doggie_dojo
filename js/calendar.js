@@ -225,7 +225,69 @@ const addTasksToDOM = function(taskArray) {
 }
 
 
+//function to show progress bar when user finishes tasks for the day and shows img of dog from html 
+function showProgress() {
+    const progress = document.querySelector('.progress');
+    progress.style.width = '250px';
+    document.querySelector('.progress').removeAttribute('hidden');
+    document.querySelector('.progress-bar').removeAttribute('hidden');
+    document.querySelector('.progress').removeAttribute('hidden');
+}
+//add numberic value to checked tasks
+function addChecked() {
+    const tasks = document.querySelectorAll('.task input');
+    tasks.forEach(task => 1); {
+        task.addEventListener('click', () => {
+            if (task.checked) {
+                task.parentNode.classList.add('checked');
+            } else {
+                task.parentNode.classList.remove('checked');
+            }
+        });
+    };
+}
 
+
+
+//function for progress bar to show user progress based on the number of clicks on the checkbox
+function progressBar() {
+    const tasks = document.querySelectorAll('.task input');
+    addblack = document.querySelector('.black');
+    addgreen = document.querySelector('.green');
+    addorange = document.querySelector('.orange');
+    addyellow = document.querySelector('.yellow');
+    let count = 0;
+    tasks.forEach(task => {
+        task.addEventListener('click', () => {
+            if (task.checked > 5) {
+                document.querySelector('.yellow').removeAttribute('active');
+            } else {
+                document.querySelector('.yellow').removeAttribute('hidden');;
+            }
+            if (task.checked > 10) {
+                document.querySelector('.orange').removeAttribute('active');
+            } else {
+                document.querySelector('.orange').removeAttribute('hidden');;
+            }
+            if (task.checked > 15) {
+                document.querySelector('.green').removeAttribute('active');
+            } else {
+                document.querySelector('.green').removeAttribute('hidden');;
+            }
+            if (task.checked > 20) {
+                document.querySelector('.black').removeAttribute('active');
+            } else {
+                document.querySelector('.black').removeAttribute('hidden');;
+            }
+            const progress = document.querySelector('.progress-bar');
+            const progressWidth = (count / tasks.length) * 30;
+            progress.style.width = `${progressWidth}%`;
+            if (progressWidth === 30) {
+                showProgress();
+            }
+        });
+    });
+}
 
 
 
