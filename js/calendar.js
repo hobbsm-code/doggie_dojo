@@ -13,7 +13,6 @@ let userIndex = getUserIndexFromUserName(userName);
 
 // Get the user's tasks from local storage
 function getUserTasks(userName) {
-function getUserTasks(userName) {
     userIndex = getUserIndexFromUserName(userName);
     if (userIndex === null) {
         return null;
@@ -35,6 +34,7 @@ function completeTask(userName, day, task) {
     }
     user.taskTracker = userTaskTracker;
     replaceUserInArray(userName, user);
+    }
 }
 
 // Set a user's task for a day to false
@@ -49,12 +49,10 @@ function uncompleteTask(userName, day, task) {
     }
     user.taskTracker = userTaskTracker;
     replaceUserInArray(userName, user);
+    }
 }
 
 // Get the user's task tracker from local storage
-function getUserTaskTracker(userName) {
-    const userDataArray = loadUserDataArray();
-    const userIndex = getUserIndexFromUserName(userName);
 function getUserTaskTracker(userName) {
     const userDataArray = loadUserDataArray();
     const userIndex = getUserIndexFromUserName(userName);
@@ -66,7 +64,6 @@ function getUserTaskTracker(userName) {
     }
 }
 
-function getUserTaskStatusForDay (userName, day) {
 function getUserTaskStatusForDay (userName, day) {
     let userTaskTracker = getUserTaskTracker(userName);
     let taskStatus = [];
@@ -304,6 +301,4 @@ $(document).on('click', '.task input', function() {
     } else {
         uncompleteTask(currentUserName, day, task);
     }
-}
-);
-
+});
