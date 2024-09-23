@@ -287,15 +287,6 @@ function progressBar() {
     });
 }
 
-
-
-// completeTask('Butch', 14, 'Use a blanket');
-// completeTask('Butch', 14, 'Be patient');
-// const tasksButchDay14 = getUserTaskStatusForDay('Butch', 14);
-// const tasksButch = getUserTasks('Butch');
-
-
-// addTasksToDOM(tasksButchDay14);
 $(document).on('click', '.task input', function() {
     const task = $(this).attr('id');
     const day = $(this).attr('data-day');
