@@ -12,7 +12,7 @@ const userNameInput = document.querySelector('#username');
 let userIndex = getUserIndexFromUserName(userName);
 
 // Get the user's tasks from local storage
-const getUserTasks = function (userName) {
+function getUserTasks(userName) {
     userIndex = getUserIndexFromUserName(userName);
     if (userIndex === null) {
         return null;
@@ -27,12 +27,14 @@ function completeTask(userName, day, task) {
     let user = getUserObjectFromUserName(userName);
     let userTaskTracker = user.taskTracker;
     for (let i = 0; i < userTaskTracker.length; i++) {
-        if (userTaskTracker[i].day === day && userTaskTracker[i].task === task) {
+        if (userTaskTracker[i].day == day && userTaskTracker[i].task == task) {
+        if (userTaskTracker[i].day == day && userTaskTracker[i].task == task) {
             userTaskTracker[i].completed = true;
         }
     }
     user.taskTracker = userTaskTracker;
     replaceUserInArray(userName, user);
+    }
 }
 
 // Set a user's task for a day to false
@@ -40,25 +42,29 @@ function uncompleteTask(userName, day, task) {
     let user = getUserObjectFromUserName(userName);
     let userTaskTracker = user.taskTracker;
     for (let i = 0; i < userTaskTracker.length; i++) {
-        if (userTaskTracker[i].day === day && userTaskTracker[i].task === task) {
+        if (userTaskTracker[i].day == day && userTaskTracker[i].task == task) {
+        if (userTaskTracker[i].day == day && userTaskTracker[i].task == task) {
             userTaskTracker[i].completed = false;
         }
     }
     user.taskTracker = userTaskTracker;
     replaceUserInArray(userName, user);
-}
-
-// Get the user's task tracker from local storage
-const getUserTaskTracker = function (userName) {
-    userIndex = getUserIndexFromUserName(userName);
-    if (userIndex === null) {
-        return null;
-    } else {
-        return userData[userIndex].taskTracker;
     }
 }
 
-const getUserTaskStatusForDay = function (userName, day) {
+// Get the user's task tracker from local storage
+function getUserTaskTracker(userName) {
+    const userDataArray = loadUserDataArray();
+    const userIndex = getUserIndexFromUserName(userName);
+    if (userIndex === null) {
+        return null;
+    } else {
+        return userDataArray[userIndex].taskTracker;
+        return userDataArray[userIndex].taskTracker;
+    }
+}
+
+function getUserTaskStatusForDay (userName, day) {
     let userTaskTracker = getUserTaskTracker(userName);
     let taskStatus = [];
     for (let i = 0; i < userTaskTracker.length; i++) {
@@ -190,13 +196,9 @@ addTasksCloseBtn.addEventListener('click', () => {
 });
 
 daysWrapper.addEventListener('click', (e) => {
-    // e.stopPropagation();
     removeTasksFromDom();
     const day = e.target.id;
-    console.log(`Day: ${day}`);
-    console.log(`Current User: ${currentUserName}`);
     const currentDayTasks = getUserTaskStatusForDay(currentUserName, day);
-    console.log(`Current Day Tasks: ${currentDayTasks}`);
     unhideTasksBar();
     addTasksToDOM(currentDayTasks);
 
@@ -212,6 +214,8 @@ const addTasksToDOM = function(taskArray) {
         const inputElement = document.createElement('input');
         inputElement.type = 'checkbox';
         inputElement.id = task;
+        inputElement.dataset.day = taskArray[i].day;
+        inputElement.dataset.day = taskArray[i].day;
         inputElement.name = task;
         inputElement.checked = status;
         const labelElement = document.createElement('label');
@@ -289,13 +293,12 @@ function progressBar() {
     });
 }
 
-
-
-// completeTask('Butch', 14, 'Use a blanket');
-// completeTask('Butch', 14, 'Be patient');
-// const tasksButchDay14 = getUserTaskStatusForDay('Butch', 14);
-// const tasksButch = getUserTasks('Butch');
-
-
-// addTasksToDOM(tasksButchDay14);
-
+$(document).on('click', '.task input', function() {
+    const task = $(this).attr('id');
+    const day = $(this).attr('data-day');
+    if ($(this).prop('checked')) {
+        completeTask(currentUserName, day, task);
+    } else {
+        uncompleteTask(currentUserName, day, task);
+    }
+});
