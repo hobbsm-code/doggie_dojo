@@ -2,6 +2,7 @@ const TASK_TRACKER_KEY = 'taskTracker';
 const dayCount = 30;
 let currentUser;
 let currentUserTaskTracker;
+let currentUserName = localStorage.getItem('currentUserName');
 const userData = JSON.parse(localStorage.getItem('doggieDojoUserData'));
 const tasks = JSON.parse(localStorage.getItem('setTrainingTasks'));
 const tasksList = document.getElementById('#days');
@@ -150,9 +151,8 @@ addTasks = document.querySelector('.add-tasks');
 const addTasksWrapper = document.querySelector('.add-tasks-wrapper');
 addTodaysDate = document.querySelector('.todays-date');
 
-currentUserName = 'Butch';
-
 window.onload = function() {
+    console.log(`loading calendar for ${currentUserName}`);
     currentUser = getUserObjectFromUserName(currentUserName);
     currentUserTaskTracker = buildTaskTracker(currentUserName);
     hideTasksBar();
