@@ -9,6 +9,7 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const openModalBtn = document.querySelector('#signInBtn');
 const closeModalBtn = document.querySelector('.btn-close');
+const signInBtn = modal.querySelector('.btn');
 
 const closeModal = function () {
     modal.classList.add('hidden');
@@ -24,3 +25,16 @@ const openModal = function () {
 };
 
 openModalBtn.addEventListener('click', openModal);
+
+signInBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (email && password) {
+        window.location.href = 'calendar.html';
+    } else {
+        alert('Please enter both email and password');
+    }
+});
